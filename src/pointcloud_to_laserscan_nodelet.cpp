@@ -160,7 +160,7 @@ void PointCloudToLaserScanNodelet::cloudCb(const sensor_msgs::PointCloud2ConstPt
   output.range_max = range_max_;
 
   // determine amount of rays to create
-  uint32_t ranges_size = std::ceil((output.angle_max - output.angle_min) / output.angle_increment);
+  uint32_t ranges_size = std::ceil((output.angle_max - output.angle_min) / output.angle_increment)+1;
 
   // determine if laserscan rays with no obstacle data will evaluate to infinity or max_range
   if (use_inf_)
